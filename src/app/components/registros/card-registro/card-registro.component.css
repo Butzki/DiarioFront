@@ -1,0 +1,32 @@
+
+.registro-card {
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.registro-cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.registro-titulo {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.registro-data {
+  color: var(--cor-texto-suave);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.registro-conteudo {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--cor-texto);
+}
