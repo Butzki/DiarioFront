@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Registro } from './Registro';
 
 @Component({
@@ -9,9 +9,10 @@ import { Registro } from './Registro';
   styleUrl: './card-registro.component.css'
 })
 export class CardRegistroComponent {
-  registro: Registro = {
-    titulo: 'Título do registro',
+    @Input()
+  registroDestino: Registro = {
+    titulo: '',
     data: new Date('2026-09-25'),
-    conteudo: 'Conteúdo do registro...'
+    conteudo: ''
   };
 }

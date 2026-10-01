@@ -7,5 +7,12 @@
 </header>
 
 <main>
-  <app-card-registro></app-card-registro>
+  <h2>Registros</h2>
+  <div id="registros-container" *ngFor="let registroOrigem of registrosOrigem">
+    <app-card-registro [registroDestino]="registroOrigem"></app-card-registro>
+  </div>
+
+  <button id="adicionar-registro"> 
+    <span>+</span>
+  </button>
 </main>
