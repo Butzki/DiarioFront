@@ -1,7 +1,7 @@
   <section class="registro-card">
     <div class="registro-cabecalho">
       <h2 class="registro-titulo">{{ registroDestino.titulo }}</h2>
-      <span class="registro-data">{{ registroDestino.conteudo }}</span>
+      <span class="registro-data">Data: {{ registroDestino.data | date:'dd/MM/yyyy' }}</span>
     </div>
-    <p class="registro-conteudo">Data: {{ registroDestino.data }}</p>
+    <p class="registro-conteudo">{{ registroDestino.conteudo }}</p>
   </section>

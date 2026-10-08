@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { Registro } from './Registro';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-card-registro',
   standalone: true,
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './card-registro.component.html',
   styleUrl: './card-registro.component.css'
 })

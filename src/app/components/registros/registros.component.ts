@@ -19,7 +19,11 @@ export class RegistrosComponent {
   }
 
   ngOnInit(): void {
-    this._http.get<Registro[]>('http://localhost:5109/registros').subscribe({
+    this._http.get<Registro[]>('http://localhost:4200/api/registros',
+      {
+        transferCache: false
+      }
+    ).subscribe({
       next: (registros) => {
         this.registrosOrigem = registros;
       },
