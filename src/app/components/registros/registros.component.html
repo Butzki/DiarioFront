@@ -8,11 +8,43 @@
 
 <main>
   <h2>Registros</h2>
-  <div id="registros-container" *ngFor="let registroOrigem of registrosOrigem">
-    <app-card-registro [registroDestino]="registroOrigem"></app-card-registro>
+
+  <div id="registros-container">
+    <app-card-registro
+      *ngFor="let registroOrigem of registrosOrigem"
+      [registroDestino]="registroOrigem">
+    </app-card-registro>
   </div>
 
-  <button id="adicionar-registro"> 
+  <button id="adicionar-registro" type="button" (click)="modalSolicitado = true">
     <span>+</span>
   </button>
 </main>
+
+@if (modalSolicitado) {
+  <div id="modal-container">
+    <section id="modal">
+      <div id="modal-header">
+        <h2>Adicionar Registro</h2>
+        <button id="modal-fechar" type="button" (click)="modalSolicitado = false">X</button>
+      </div>
+
+      <form id="modal-form" (ngSubmit)="adicionarRegistro()">
+        <div id="modal-form-campos">
+          <label for="titulo">Título:</label>
+          <input type="text" id="titulo" name="titulo" required maxlength="50"
+                 [(ngModel)]="novoRegistro.titulo">
+
+          <label for="conteudo">Conteúdo:</label>
+          <textarea id="conteudo" name="conteudo" required maxlength="3000"
+                    [(ngModel)]="novoRegistro.conteudo"></textarea>
+        </div>
+
+        <div id="modal-form-botoes">
+          <button type="submit">Salvar</button>
+          <button type="button" id="modal-cancelar" (click)="modalSolicitado = false">Cancelar</button>
+        </div>
+      </form>
+    </section>
+  </div>
+}

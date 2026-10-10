@@ -45,3 +45,151 @@ main {
   margin: 2rem auto;
   padding: 0 1.5rem;
 }
+
+#modal-container {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Desfoca e escurece a página por trás */
+    background: rgba(40, 10, 50, 0.45);
+    -webkit-backdrop-filter: blur(8px) saturate(120%);
+    backdrop-filter: blur(8px) saturate(120%);
+
+    animation: fade-in 0.25s ease-out;
+}
+
+#modal {
+    position: relative;
+    background-color: white;
+    padding: 2em;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    width: min(90vw, 480px);
+
+    /* Camadas de sombra para dar profundidade */
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.1),
+        0 12px 24px rgba(0, 0, 0, 0.2),
+        0 32px 64px rgba(60, 10, 70, 0.35);
+
+    animation: modal-in 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    h2 {
+        margin: 0;
+    }
+
+    button {
+        background-color: transparent;
+        border: none;
+        font-size: 1.5em;
+        cursor: pointer;
+        border-radius: 50%;
+        width: 2em;
+        height: 2em;
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: rgba(100, 35, 100, 0.1);
+        }
+    }
+}
+
+#modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+}
+
+#modal-form-campos {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+
+    label {
+        font-weight: 600;
+        font-size: 0.9em;
+        margin-top: 0.6em;
+    }
+
+    input,
+    textarea {
+        padding: 0.6em 0.8em;
+        border: 1px solid #d5c4d8;
+        border-radius: 0.5em;
+        font: inherit;
+        transition: border-color 0.2s, box-shadow 0.2s;
+
+        &:focus {
+            outline: none;
+            border-color: rgb(140, 50, 140);
+            box-shadow: 0 0 0 3px rgba(140, 50, 140, 0.2);
+        }
+    }
+
+    textarea {
+        min-height: 6em;
+        resize: vertical;
+    }
+}
+
+#modal-form-botoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.6em;
+
+    button {
+        padding: 0.6em 1.2em;
+        border-radius: 0.5em;
+        border: none;
+        font: inherit;
+        cursor: pointer;
+        transition: transform 0.15s, filter 0.2s;
+
+        &:hover {
+            filter: brightness(1.08);
+        }
+        &:active {
+            transform: scale(0.97);
+        }
+    }
+
+    button[type="submit"] {
+        background: linear-gradient(135deg, rgb(150, 55, 150), rgb(100, 35, 100));
+        color: white;
+    }
+
+    button[type="button"] {
+        background-color: #eee;
+        color: #333;
+    }
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes modal-in {
+    from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
