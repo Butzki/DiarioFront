@@ -4,15 +4,17 @@
         <p>Faça login para acessar sua conta</p>
     </div>
 
-    <form>
+    <form (ngSubmit)="autenticar()">
         <div class="input-group">
             <label for="usuario">Usuário</label>
-            <input type="text" id="usuario" placeholder="Digite seu usuário" required>
+            <input type="text" id="usuario" name="usuario" placeholder="Digite seu usuário"
+                   autocomplete="username" required [(ngModel)]="nome">
         </div>
 
         <div class="input-group">
             <label for="password">Senha</label>
-            <input type="password" id="password" placeholder="********" required>
+            <input type="password" id="password" name="password" placeholder="********"
+                   autocomplete="current-password" required [(ngModel)]="senha">
         </div>
 
         <button type="submit" class="btn-submit">Entrar</button>
